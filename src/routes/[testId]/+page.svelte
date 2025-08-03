@@ -9,6 +9,8 @@
 <svelte:head>
     <title>The {name} Purity Test</title>
     <meta name="description" content={description} />
+
+    <meta property="og:title" content="The {name} Purity Test" />
     <meta property="og:description" content={description} />
 </svelte:head>
 
