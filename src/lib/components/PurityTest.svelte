@@ -17,7 +17,7 @@
         | {
             noHeader?: false;
             name: string;
-            description?: string | null;
+            description: string;
             completionConsequence?: string;
           }
     );
@@ -26,7 +26,7 @@
         children,
         noHeader = false,
         name,
-        description = null,
+        description,
         completionConsequence = 'death',
         backgroundImage = 'https://ricepuritytest.com/owl.png',
     }: Props = $props();

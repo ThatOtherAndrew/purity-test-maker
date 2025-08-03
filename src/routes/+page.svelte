@@ -2,7 +2,14 @@
     import PurityTest from '$lib/components/PurityTest.svelte';
     import PurityTestHeader from '$lib/components/PurityTestHeader.svelte';
     import purityTests from '$lib/purity-tests';
+
+    // prettier-ignore
+    const description = 'Answer various Rice Purity Test style quizzes, or make your own to share with your friends!';
 </script>
+
+<svelte:head>
+    <meta name="description" content={description} />
+</svelte:head>
 
 <PurityTest noHeader>
     <PurityTestHeader

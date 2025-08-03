@@ -10,6 +10,7 @@
 
 <svelte:head>
     <title>Your {name} Purity Score</title>
+    <meta name="description" content={description} />
 </svelte:head>
 
 <PurityTest {name} {description} {completionConsequence}>
