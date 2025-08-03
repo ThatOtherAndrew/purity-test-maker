@@ -11,13 +11,13 @@
         | {
             noHeader: true;
             name?: never;
-            introParagraph?: never;
+            description?: never;
             completionConsequence?: never;
           }
         | {
             noHeader?: false;
             name: string;
-            introParagraph?: string | null;
+            description?: string | null;
             completionConsequence?: string;
           }
     );
@@ -26,7 +26,7 @@
         children,
         noHeader = false,
         name,
-        introParagraph = null,
+        description = null,
         completionConsequence = 'death',
         backgroundImage = 'https://ricepuritytest.com/owl.png',
     }: Props = $props();
@@ -35,7 +35,7 @@
 <div class="main" style="background-image: url({backgroundImage});">
     {#if !noHeader}
         <PurityTestHeader {name} />
-        <PurityTestText {introParagraph} {completionConsequence} />
+        <PurityTestText {description} {completionConsequence} />
     {/if}
     {@render children?.()}
 </div>

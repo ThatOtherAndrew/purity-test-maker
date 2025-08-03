@@ -1,10 +1,10 @@
 <script lang="ts">
-    let { introParagraph = null, completionConsequence = 'death' } = $props();
+    let { description = null, completionConsequence = 'death' } = $props();
 </script>
 
-{#if introParagraph !== null}
+{#if description !== null}
     <p class="pre-wrap">
-        <i>{introParagraph}</i>
+        <i>{description}</i>
     </p>
 {/if}
 
