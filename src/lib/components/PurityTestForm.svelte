@@ -1,6 +1,6 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
-    import { page } from '$app/stores';
+    import { page } from '$app/state';
 
     let { questions } = $props();
 
@@ -21,7 +21,7 @@
 
     function handleSubmit() {
         const resultId = getResultId();
-        goto(`${$page.url.pathname}/results/${resultId}`);
+        goto(`${page.url.pathname}/results/${resultId}`);
     }
 
     function handleReset() {
