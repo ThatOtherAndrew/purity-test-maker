@@ -10,3 +10,13 @@
 </svelte:head>
 
 {@render children?.()}
+
+<style>
+    :global(body) {
+        margin: 0;
+        padding: 0;
+        text-align: center;
+        font-size: 20px;
+        background-color: #fbeec8;
+    }
+</style>
