@@ -9,6 +9,7 @@
 <svelte:head>
     <title>The {name} Purity Test</title>
     <meta name="description" content={description} />
+    <meta property="og:description" content={description} />
 </svelte:head>
 
 <PurityTest {name} {description} {completionConsequence}>
