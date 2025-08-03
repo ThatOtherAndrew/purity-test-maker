@@ -1,16 +1,18 @@
 <script lang="ts">
-    let { name } = $props();
+    let { name, isFullTitle = false, stamp = 'The Unofficial' } = $props();
+
+    const title = isFullTitle ? name : `${name} Purity Test`;
 </script>
 
 <header>
-    <h3>The Unofficial</h3>
+    <h3>{stamp}</h3>
     <div class="title">
         <div class="lines">
             <div class="line"></div>
             <div class="line"></div>
             <div class="line"></div>
         </div>
-        <h2>{name} Purity Test</h2>
+        <h2>{title}</h2>
         <div class="lines">
             <div class="line"></div>
             <div class="line"></div>
@@ -21,7 +23,7 @@
 
 <style>
     @font-face {
-        font-family: Typewriter;
+        font-family: typewriter-serial-bold;
         src: url(/fonts/typewriter-serial-bold-subset.woff2);
     }
 
@@ -32,8 +34,15 @@
         margin: 0 auto;
     }
 
+    @media (max-width: 768px) {
+        header {
+            font-size: 4vw;
+        }
+    }
+
     .title {
-        padding-top: 2em;
+        margin-top: 2em;
+        margin-bottom: 1em;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -54,7 +63,7 @@
         left: 0.4em;
         transform: rotate(-10deg);
 
-        font-family: Typewriter;
+        font-family: typewriter-serial-bold;
         font-size: 105%;
         font-stretch: condensed;
         font-weight: 900;

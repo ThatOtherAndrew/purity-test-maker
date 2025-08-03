@@ -10,12 +10,6 @@ body {
     padding: 10px;
 }
 
-img {
-    max-width: 70%; /* Ensures images don’t overflow */
-    height: auto;
-    width: auto;
-}
-
 .button {
     justify-content: center;
     padding: 10px 20px;
@@ -85,10 +79,6 @@ h1 {
 }
 
 @media (max-width: 768px) {
-    img {
-        max-width: 100%; /* Ensures images don’t overflow */
-    }
-
     .container {
         padding: 5px;
     }
