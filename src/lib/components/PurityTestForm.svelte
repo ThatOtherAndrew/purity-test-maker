@@ -21,6 +21,10 @@
 </section>
 
 <style>
+    p {
+        margin-top: 0;
+    }
+
     #list {
         text-align: left;
         margin-left: 10px;
