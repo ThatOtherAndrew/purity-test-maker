@@ -1,0 +1,100 @@
+body {
+	text-align: center;
+	font-size: 20px;
+	margin: 0;
+	padding: 0;
+}
+
+.container {
+	max-width: 100%;
+	padding: 10px;
+}
+
+img {
+	max-width: 70%; /* Ensures images don’t overflow */
+	height: auto;
+	width: auto;
+}
+
+.button {
+	justify-content: center;
+	padding: 10px 20px;
+	margin: 10px;
+	font-size: 1em;
+	text-align: center;
+	border-radius: 20px;
+	background-color: rgba(102, 255, 220, 0.3);
+	color: rgb(0, 0, 5);
+}
+
+button {
+	justify-content: center;
+	padding: 10px 20px;
+	margin: 10px;
+	font-size: 1em;
+	text-align: center;
+	border-radius: 20px;
+	background-color: rgba(255, 0, 0, 0.3);
+	color: rgb(0, 0, 5);
+}
+
+html {
+	background-color: #fbeec8;
+	background-image: url('owl.png');
+}
+
+#list {
+	text-align: left;
+	margin-left: 10px;
+	margin-right: 20px;
+}
+
+ol {
+	margin-top: 0;
+	padding-top: 0;
+}
+
+input[type='checkbox'] {
+	width: 20px;
+	height: 20px;
+	accent-color: #9fddf9;
+	cursor: pointer;
+}
+
+label {
+	cursor: pointer;
+}
+
+h1 {
+	font-size: 300%;
+	font-weight: bold;
+	color: red;
+	padding: 0px;
+	margin: 0px;
+}
+
+.thresher-link {
+	color: #0a509e;
+	text-decoration: none; /* Remove underline */
+	font-weight: bold; /* Make it stand out */
+}
+
+.thresher-link:hover {
+	color: #303b61; /* Slightly darker on hover */
+	text-decoration: underline; /* Add underline on hover */
+}
+
+@media (max-width: 768px) {
+	img {
+		max-width: 100%; /* Ensures images don’t overflow */
+	}
+
+	.container {
+		padding: 5px;
+	}
+
+	.button {
+		font-size: 0.9em;
+		padding: 16px 16px;
+	}
+}
