@@ -40,12 +40,6 @@
         margin: 0 auto;
     }
 
-    @media (max-width: 768px) {
-        header {
-            font-size: 3.8vw;
-        }
-    }
-
     .title {
         margin: 2em 0;
         display: flex;
