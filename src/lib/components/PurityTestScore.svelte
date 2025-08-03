@@ -1,5 +1,10 @@
 <script lang="ts">
     let { testId, score } = $props();
+
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+    }
 </script>
 
 <section>
@@ -10,6 +15,7 @@
         <a id="restart" href="/{testId}">
             <button>Take again!</button>
         </a>
+        <button onclick={copyLink}>Copy Link</button>
     </div>
 </section>
 
