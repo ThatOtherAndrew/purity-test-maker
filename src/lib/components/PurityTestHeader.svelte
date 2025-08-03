@@ -1,5 +1,10 @@
 <script lang="ts">
-    let { name, isFullTitle = false, stamp = 'The Unofficial' } = $props();
+    let {
+        name,
+        isFullTitle = false,
+        stamp = 'The Unofficial',
+        comment = 'Have you ever...'
+    } = $props();
 
     const title = isFullTitle ? name : `${name} Purity Test`;
 </script>
@@ -19,6 +24,7 @@
             <div class="line"></div>
         </div>
     </div>
+    <i>{comment}</i>
 </header>
 
 <style>
@@ -41,8 +47,7 @@
     }
 
     .title {
-        margin-top: 2em;
-        margin-bottom: 1em;
+        margin: 2em 0;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -79,5 +84,15 @@
     h2 {
         margin: 0;
         text-align: center;
+    }
+
+    i {
+        position: absolute;
+        left: 1em;
+        bottom: -1.25em;
+
+        font-family: Arial, sans-serif;
+        font-size: 0.45em;
+        font-weight: 600;
     }
 </style>
