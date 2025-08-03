@@ -105,6 +105,7 @@
         border-radius: 20px;
         background-color: rgba(102, 255, 220, 0.3);
         color: rgb(0, 0, 5);
+        cursor: pointer;
     }
 
     @media (max-width: 768px) {

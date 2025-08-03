@@ -1,7 +1,7 @@
 <script>
     import PurityTestHeader from '$lib/components/PurityTestHeader.svelte';
-    import { page } from '$app/state';
     import PurityTest from '$lib/components/PurityTest.svelte';
+    import { page } from '$app/state';
 </script>
 
 <PurityTest noHeader>

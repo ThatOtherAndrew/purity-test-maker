@@ -3,7 +3,7 @@
         name,
         isFullTitle = false,
         stamp = 'The Unofficial',
-        comment = 'Have you ever...'
+        comment = 'Have you ever...',
     } = $props();
 
     const title = isFullTitle ? name : `${name} Purity Test`;
@@ -42,7 +42,7 @@
 
     @media (max-width: 768px) {
         header {
-            font-size: 4vw;
+            font-size: 3.8vw;
         }
     }
 

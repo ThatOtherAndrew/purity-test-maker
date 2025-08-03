@@ -41,5 +41,6 @@
         border-radius: 20px;
         background-color: rgba(255, 0, 0, 0.3);
         color: rgb(0, 0, 5);
+        cursor: pointer;
     }
 </style>
