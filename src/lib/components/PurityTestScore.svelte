@@ -1,5 +1,5 @@
 <script lang="ts">
-    let { score, testId } = $props();
+    let { testId, score } = $props();
 </script>
 
 <section>

@@ -1,5 +1,32 @@
 <script lang="ts">
+    import { goto } from '$app/navigation';
+    import { page } from '$app/stores';
+
     let { questions } = $props();
+
+    let formState: boolean[] = $state(new Array(questions.length).fill(false));
+
+    function getResultId(): string {
+        const binaryString = formState.map((checked) => (checked ? '1' : '0')).join('');
+        const paddedBinary = binaryString.padEnd(Math.ceil(binaryString.length / 8) * 8, '0');
+        const bytes: number[] = [];
+        for (let i = 0; i < paddedBinary.length; i += 8) {
+            const byte = paddedBinary.slice(i, i + 8);
+            bytes.push(parseInt(byte, 2));
+        }
+        const uint8Array = new Uint8Array(bytes);
+        const base64 = btoa(String.fromCharCode.apply(null, Array.from(uint8Array)));
+        return base64.replace(/\+/g, '-').replace(/\//g, '_').replace(/=/g, '');
+    }
+
+    function handleSubmit() {
+        const resultId = getResultId();
+        goto(`${$page.url.pathname}/results/${resultId}`);
+    }
+
+    function handleReset() {
+        formState = new Array(questions.length).fill(false);
+    }
 </script>
 
 <section>
@@ -9,14 +36,26 @@
         <ol>
             {#each questions as question, index (index)}
                 <li>
-                    <input type="checkbox" id={index.toString()} />
+                    <input type="checkbox" id={index.toString()} bind:checked={formState[index]} />
                     <label for={index.toString()}>{question}</label>
                 </li>
             {/each}
         </ol>
 
-        <input class="button" id="submit" type="submit" value="Calculate My Score!" />
-        <input class="button" id="reset" type="submit" value="Clear checkboxes" />
+        <input
+            class="button"
+            id="submit"
+            type="button"
+            value="Calculate My Score!"
+            onclick={handleSubmit}
+        />
+        <input
+            class="button"
+            id="reset"
+            type="button"
+            value="Clear checkboxes"
+            onclick={handleReset}
+        />
     </div>
 </section>
 
