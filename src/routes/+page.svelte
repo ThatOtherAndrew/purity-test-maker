@@ -8,6 +8,7 @@
 </script>
 
 <svelte:head>
+    <title>The Official Purity Test Maker</title>
     <meta name="description" content={description} />
 </svelte:head>
 
