@@ -4,7 +4,7 @@
     import PurityTestScore from '$lib/components/PurityTestScore.svelte';
 
     let { data } = $props();
-    const name = data.testData.name;
+    const { name, description, completionConsequence } = data.testData;
     const score = data.answers.length - data.answers.filter(Boolean).length;
 </script>
 
@@ -12,7 +12,7 @@
     <title>Your {name} Purity Score</title>
 </svelte:head>
 
-<PurityTest {name}>
+<PurityTest {name} {description} {completionConsequence}>
     <PurityTestScore testId={data.testId} {score} />
     <h2>Your answers:</h2>
     <PurityTestForm questions={data.testData.questions} answers={data.answers} />

@@ -9,6 +9,7 @@ type PurityTest = {
 
 const purityTests: Record<string, PurityTest> = {
     original: await import('./original.json'),
+    sparc: await import('./sparc.json'),
 };
 
 export default purityTests;
