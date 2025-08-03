@@ -2,9 +2,10 @@
     import { goto } from '$app/navigation';
     import { page } from '$app/state';
 
-    let { questions } = $props();
+    let { questions, answers = null } = $props();
 
-    let formState: boolean[] = $state(new Array(questions.length).fill(false));
+    const initialState = answers ?? new Array(questions.length).fill(false);
+    let formState: boolean[] = $state(initialState);
 
     function getResultId(): string {
         const binaryString = formState.map((checked) => (checked ? '1' : '0')).join('');
@@ -30,32 +31,41 @@
 </script>
 
 <section>
-    <p>Click on every item you have done.</p>
+    {#if answers === null}
+        <p>Click on every item you have done.</p>
+    {/if}
 
-    <div id="list">
+    <div class="form">
         <ol>
             {#each questions as question, index (index)}
                 <li>
-                    <input type="checkbox" id={index.toString()} bind:checked={formState[index]} />
+                    <input
+                        type="checkbox"
+                        id={index.toString()}
+                        bind:checked={formState[index]}
+                        disabled={answers}
+                    />
                     <label for={index.toString()}>{question}</label>
                 </li>
             {/each}
         </ol>
 
-        <input
-            class="button"
-            id="submit"
-            type="button"
-            value="Calculate My Score!"
-            onclick={handleSubmit}
-        />
-        <input
-            class="button"
-            id="reset"
-            type="button"
-            value="Clear checkboxes"
-            onclick={handleReset}
-        />
+        {#if answers === null}
+            <input
+                class="button"
+                id="submit"
+                type="button"
+                value="Calculate My Score!"
+                onclick={handleSubmit}
+            />
+            <input
+                class="button"
+                id="reset"
+                type="button"
+                value="Clear checkboxes"
+                onclick={handleReset}
+            />
+        {/if}
     </div>
 </section>
 
@@ -64,7 +74,7 @@
         margin-top: 0;
     }
 
-    #list {
+    .form {
         text-align: left;
         margin-left: 10px;
         margin-right: 20px;
