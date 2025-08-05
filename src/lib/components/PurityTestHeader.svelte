@@ -9,28 +9,39 @@
     const title = isFullTitle ? name : `${name} Purity Test`;
 </script>
 
-<header>
-    <h3>{stamp}</h3>
-    <div class="title">
-        <div class="lines">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
+<a href="/">
+    <header>
+        <h3>{stamp}</h3>
+        <div class="title">
+            <div class="lines">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
+            <h2>{title}</h2>
+            <div class="lines">
+                <div class="line"></div>
+                <div class="line"></div>
+                <div class="line"></div>
+            </div>
         </div>
-        <h2>{title}</h2>
-        <div class="lines">
-            <div class="line"></div>
-            <div class="line"></div>
-            <div class="line"></div>
-        </div>
-    </div>
-    <i>{comment}</i>
-</header>
+        <i>{comment}</i>
+    </header>
+</a>
 
 <style>
     @font-face {
         font-family: typewriter-serial-bold;
         src: url(/fonts/typewriter-serial-bold-subset.woff2);
+    }
+
+    a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+    a:hover {
+        text-decoration: underline;
     }
 
     header {
