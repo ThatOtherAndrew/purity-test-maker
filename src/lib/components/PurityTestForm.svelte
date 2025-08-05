@@ -38,14 +38,15 @@
     <div class="form">
         <ol>
             {#each questions as question, index (index)}
-                <li>
+                <li class:disabled={answers}>
                     <input
                         type="checkbox"
+                        class:disabled={answers}
                         id={index.toString()}
+                        class="checkbox"
                         bind:checked={formState[index]}
-                        disabled={answers}
                     />
-                    <label for={index.toString()}>{question}</label>
+                    <label for={index.toString()} class:clickable={!answers}>{question}</label>
                 </li>
             {/each}
         </ol>
@@ -85,15 +86,17 @@
         padding-top: 0;
     }
 
-    input[type='checkbox'] {
+    .checkbox {
         width: 20px;
         height: 20px;
         accent-color: #9fddf9;
         cursor: pointer;
     }
 
-    label {
-        cursor: pointer;
+    .disabled,
+    .checkbox.disabled {
+        accent-color: grey;
+        pointer-events: none;
     }
 
     .button {
