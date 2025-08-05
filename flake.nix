@@ -13,6 +13,7 @@
     in
     {
       devShells.${system}.default = pkgs.mkShell {
+        name = "puritytest";
         packages = with pkgs; [
           bun
         ];
