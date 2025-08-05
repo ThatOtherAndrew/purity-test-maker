@@ -8,7 +8,7 @@
     let formState: boolean[] = $state(initialState);
 
     function getResultId(): string {
-        const binaryString = formState.map((checked) => (checked ? '1' : '0')).join('');
+        const binaryString = formState.map(checked => (checked ? '1' : '0')).join('');
         const paddedBinary = binaryString.padEnd(Math.ceil(binaryString.length / 8) * 8, '0');
         const bytes: number[] = [];
         for (let i = 0; i < paddedBinary.length; i += 8) {

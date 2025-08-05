@@ -1,22 +1,27 @@
 {
-	"useTabs": false,
-	"tabWidth": 4,
-	"singleQuote": true,
-	"trailingComma": "es5",
-	"printWidth": 100,
-	"plugins": ["prettier-plugin-svelte"],
-	"overrides": [
-		{
-			"files": "*.svelte",
-			"options": {
-				"parser": "svelte"
-			}
-		},
-		{
-		    "files": ["*.html", "*.json"],
-			"options": {
-			    "tabWidth": 2
-			}
-		}
-	]
+  "$schema": "https://www.schemastore.org/prettierrc.json",
+
+  "plugins": ["prettier-plugin-svelte"],
+
+  "useTabs": false,
+  "tabWidth": 4,
+  "singleQuote": true,
+  "trailingComma": "es5",
+  "printWidth": 100,
+  "arrowParens": "avoid",
+
+  "overrides": [
+    {
+      "files": "*.svelte",
+      "options": {
+        "parser": "svelte"
+      }
+    },
+    {
+      "files": ["*.html", "*.json", ".prettierrc"],
+      "options": {
+        "tabWidth": 2
+      }
+    }
+  ]
 }
