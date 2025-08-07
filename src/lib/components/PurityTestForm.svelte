@@ -1,6 +1,7 @@
 <script lang="ts">
     import { goto } from '$app/navigation';
     import { page } from '$app/state';
+    import Button from './Button.svelte';
 
     let { questions, answers = null } = $props();
 
@@ -52,20 +53,8 @@
         </ol>
 
         {#if answers === null}
-            <input
-                class="button"
-                id="submit"
-                type="button"
-                value="Calculate My Score!"
-                onclick={handleSubmit}
-            />
-            <input
-                class="button"
-                id="reset"
-                type="button"
-                value="Clear checkboxes"
-                onclick={handleReset}
-            />
+            <Button id="submit" value="Calculate My Score!" onclick={handleSubmit} />
+            <Button id="reset" value="Clear checkboxes" onclick={handleReset} />
         {/if}
     </div>
 </section>
@@ -97,24 +86,5 @@
     .checkbox.disabled {
         accent-color: grey;
         pointer-events: none;
-    }
-
-    .button {
-        justify-content: center;
-        padding: 10px 20px;
-        margin: 10px;
-        font-size: 1em;
-        text-align: center;
-        border-radius: 20px;
-        background-color: rgba(102, 255, 220, 0.3);
-        color: rgb(0, 0, 5);
-        cursor: pointer;
-    }
-
-    @media (max-width: 768px) {
-        .button {
-            font-size: 0.9em;
-            padding: 16px 16px;
-        }
     }
 </style>
