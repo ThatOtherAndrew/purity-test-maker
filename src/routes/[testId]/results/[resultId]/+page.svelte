@@ -24,6 +24,6 @@
 
 <style>
     h2 {
-        margin-top: 10rem;
+        margin-top: 5rem;
     }
 </style>
