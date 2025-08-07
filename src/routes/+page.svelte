@@ -1,4 +1,5 @@
 <script>
+    import Button from '$lib/components/Button.svelte';
     import PurityTest from '$lib/components/PurityTest.svelte';
     import PurityTestHeader from '$lib/components/PurityTestHeader.svelte';
     import purityTests from '$lib/purity-tests';
@@ -19,6 +20,9 @@
         stamp="The Official"
         comment="{Object.keys(purityTests).length} Purity Tests and counting..."
     />
+    <a href="/new">
+        <Button value="Make your own test!" />
+    </a>
 
     <h2>Choose a test:</h2>
     {#each Object.entries(purityTests) as [testId, test] (testId)}
