@@ -170,6 +170,11 @@
 </section>
 
 <style>
+    hr {
+        border: 1px solid;
+        margin: 2rem 2rem 3rem;
+    }
+
     p {
         margin-top: 0;
     }
