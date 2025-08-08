@@ -8,15 +8,13 @@
     const score = data.answers.length - data.answers.filter(Boolean).length;
 </script>
 
-<svelte:head>
-    <title>Your {name} Purity Score</title>
-    <meta name="description" content={description} />
-
-    <meta property="og:title" content="Your {name} Purity Score" />
-    <meta property="og:description" content={description} />
-</svelte:head>
-
-<Page {name} {description} {completionConsequence}>
+<Page
+    pageTitle="Your {name} Purity Score"
+    pageDescription={description}
+    {name}
+    {description}
+    {completionConsequence}
+>
     <PurityTestScore testId={data.testId} {score} />
     <h2>Your answers:</h2>
     <PurityTestForm questions={data.testData.questions} answers={data.answers} />
