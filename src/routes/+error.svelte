@@ -4,6 +4,10 @@
     import { page } from '$app/state';
 </script>
 
+<svelte:head>
+    <title>You broke the website...</title>
+</svelte:head>
+
 <PurityTest noHeader>
     <PurityTestHeader
         name="{page.status} {page.error?.message}"
