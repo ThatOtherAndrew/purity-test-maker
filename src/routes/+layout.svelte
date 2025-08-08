@@ -24,6 +24,6 @@
         padding: 0;
         text-align: center;
         font-size: 20px;
-        background-color: #fbeec8;
+        background-color: #fdeec7;
     }
 </style>
