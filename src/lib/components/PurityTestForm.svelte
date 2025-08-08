@@ -29,6 +29,11 @@
     function handleReset() {
         formState = new Array(questions.length).fill(false);
     }
+
+    function copyLink() {
+        navigator.clipboard.writeText(window.location.href);
+        alert('Link copied to clipboard!');
+    }
 </script>
 
 <section>
@@ -53,8 +58,9 @@
         </ol>
 
         {#if answers === null}
-            <Button id="submit" value="Calculate My Score!" onclick={handleSubmit} />
-            <Button id="reset" value="Clear checkboxes" onclick={handleReset} />
+            <Button value="Calculate My Score!" onclick={handleSubmit} />
+            <Button value="Clear Checkboxes" onclick={handleReset} />
+            <Button value="Copy Test Link" onclick={copyLink} />
         {/if}
     </div>
 </section>
