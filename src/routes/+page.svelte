@@ -1,20 +1,16 @@
 <script>
     import Button from '$lib/components/Button.svelte';
-    import PurityTest from '$lib/components/PurityTest.svelte';
+    import Page from '$lib/components/Page.svelte';
     import PurityTestHeader from '$lib/components/PurityTestHeader.svelte';
 
     let { data } = $props();
-
-    // prettier-ignore
-    const description = 'Answer various Rice Purity Test style quizzes, or make your own to share with your friends!';
 </script>
 
-<svelte:head>
-    <title>The Official Purity Test Maker</title>
-    <meta name="description" content={description} />
-</svelte:head>
-
-<PurityTest noHeader>
+<Page
+    noHeader
+    pageTitle="The Official Purity Test Maker"
+    pageDescription="Answer various Rice Purity Test style quizzes, or make your own to share with your friends!"
+>
     <PurityTestHeader
         name="Purity Test Maker"
         isFullTitle
@@ -34,7 +30,7 @@
             </div>
         </a>
     {/each}
-</PurityTest>
+</Page>
 
 <style>
     a {

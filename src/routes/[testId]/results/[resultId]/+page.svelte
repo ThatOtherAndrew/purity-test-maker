@@ -1,5 +1,5 @@
 <script lang="ts">
-    import PurityTest from '$lib/components/PurityTest.svelte';
+    import Page from '$lib/components/Page.svelte';
     import PurityTestForm from '$lib/components/PurityTestForm.svelte';
     import PurityTestScore from '$lib/components/PurityTestScore.svelte';
 
@@ -16,11 +16,11 @@
     <meta property="og:description" content={description} />
 </svelte:head>
 
-<PurityTest {name} {description} {completionConsequence}>
+<Page {name} {description} {completionConsequence}>
     <PurityTestScore testId={data.testId} {score} />
     <h2>Your answers:</h2>
     <PurityTestForm questions={data.testData.questions} answers={data.answers} />
-</PurityTest>
+</Page>
 
 <style>
     h2 {

@@ -1,5 +1,5 @@
 <script lang="ts">
-    import PurityTest from '$lib/components/PurityTest.svelte';
+    import Page from '$lib/components/Page.svelte';
     import PurityTestForm from '$lib/components/PurityTestForm.svelte';
     import { page } from '$app/state';
 
@@ -21,6 +21,6 @@
     <meta property="og:description" content={description} />
 </svelte:head>
 
-<PurityTest {name} {description} {completionConsequence}>
+<Page {name} {description} {completionConsequence}>
     <PurityTestForm {questions} />
-</PurityTest>
+</Page>

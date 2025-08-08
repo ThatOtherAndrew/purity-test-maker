@@ -6,6 +6,8 @@
     // prettier-ignore
     type Props = {
         children?: Snippet;
+        pageTitle: string;
+        pageDescription: string;
         backgroundImage?: string;
     } & (
         | {
@@ -24,6 +26,8 @@
 
     let {
         children,
+        pageTitle,
+        pageDescription,
         noHeader = false,
         name,
         description,
@@ -31,6 +35,13 @@
         backgroundImage = '/background.png',
     }: Props = $props();
 </script>
+
+<svelte:head>
+    <title>{pageTitle}</title>
+    <meta property="og:title" content={pageTitle} />
+    <meta name="description" content={pageDescription} />
+    <meta name="og:description" content={pageDescription} />
+</svelte:head>
 
 <div class="main" style="background-image: url({backgroundImage});">
     {#if !noHeader}
