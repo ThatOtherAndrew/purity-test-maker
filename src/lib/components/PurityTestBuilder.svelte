@@ -7,7 +7,20 @@
     let questions = $state(['']);
 
     function handleSubmit() {
-        console.log($state.snapshot(questions));
+        const data = {
+            name,
+            description,
+            completionConsequence,
+            questions: questions.filter(q => q.trim() !== ''),
+        };
+
+        console.log(data);
+
+        fetch(`${page.url.pathname}/submit`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(data),
+        });
     }
 </script>
 
