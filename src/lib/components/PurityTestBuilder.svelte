@@ -164,15 +164,16 @@
                 </li>
             {/each}
         </ol>
-
-        <Button id="submit" value="Submit Purity Test!" onclick={handleSubmit} />
     </div>
+    <hr />
+
+    <Button id="submit" value="Submit Purity Test!" onclick={handleSubmit} />
 </section>
 
 <style>
     hr {
         border: 1px solid;
-        margin: 2rem 2rem 3rem;
+        margin: 2rem 0;
     }
 
     p {
