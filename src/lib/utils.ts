@@ -43,6 +43,6 @@ export async function savePurityTest(testData: PurityTestData): Promise<string> 
         }
     }
 
-    await writeFile(`purity-tests/${testId}.json`, JSON.stringify(data, null, 2));
+    await writeFile(`purity-tests/${testId}.json`, JSON.stringify(testData, null, 2));
     return testId;
 }
