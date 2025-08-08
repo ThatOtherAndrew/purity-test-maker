@@ -1,9 +1,16 @@
 <script lang="ts">
     import PurityTest from '$lib/components/PurityTest.svelte';
     import PurityTestForm from '$lib/components/PurityTestForm.svelte';
+    import { page } from '$app/state';
 
     let { data } = $props();
     const { name, description, completionConsequence, questions } = data.testData;
+
+    if ('created' in page.state) {
+        setTimeout(() => {
+            alert('Purity test successfully created!');
+        });
+    }
 </script>
 
 <svelte:head>
