@@ -1,10 +1,22 @@
 <script lang="ts">
     import Button from './Button.svelte';
+    import { page } from '$app/state';
 
     let name = $state('');
     let description = $state('');
     let completionConsequence = $state('death');
     let questions = $state(['']);
+
+    export function cleanPaste(e: ClipboardEvent) {
+        e.preventDefault();
+        const text = e.clipboardData ? e.clipboardData.getData('text') : '';
+        const clean = text.replace(/\r?\n|\r/g, ' ');
+        const selection = window.getSelection();
+        if (!selection?.rangeCount) return;
+        selection.deleteFromDocument();
+        selection.getRangeAt(0).insertNode(document.createTextNode(clean));
+        selection.collapseToEnd();
+    }
 
     function handleSubmit() {
         const data = {
@@ -38,6 +50,7 @@
             tabindex="0"
             data-placeholder="Rice"
             bind:innerText={name}
+            onpaste={cleanPaste}
             onkeydown={e => {
                 if (e.key === 'Enter') {
                     e.preventDefault();
@@ -56,6 +69,7 @@
             tabindex="0"
             data-placeholder="Enter your test description..."
             bind:innerText={description}
+            onpaste={cleanPaste}
             onkeydown={e => {
                 if (e.key === 'Enter') {
                     e.preventDefault();
@@ -76,6 +90,7 @@
                 tabindex="0"
                 data-placeholder="death"
                 bind:innerText={completionConsequence}
+                onpaste={cleanPaste}
                 onfocus={e => {
                     window.getSelection()?.selectAllChildren(e.target as HTMLElement);
                 }}
