@@ -20,7 +20,7 @@
 
     function handleSubmit() {
         const data = {
-            name,
+            name: name === '' ? 'Rice' : name,
             description,
             completionConsequence,
             questions: questions.filter(q => q.trim() !== ''),
