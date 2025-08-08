@@ -28,7 +28,7 @@
         name,
         description,
         completionConsequence = 'death',
-        backgroundImage = 'https://ricepuritytest.com/owl.png',
+        backgroundImage = '/background.png',
     }: Props = $props();
 </script>
 
@@ -44,5 +44,6 @@
     .main {
         padding: 1rem;
         min-height: calc(100vh - 2rem);
+        background-size: 120px;
     }
 </style>
