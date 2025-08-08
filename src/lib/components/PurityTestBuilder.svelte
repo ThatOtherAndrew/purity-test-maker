@@ -115,6 +115,7 @@
                                 }
                             } else if (e.key === 'Enter') {
                                 e.preventDefault();
+                                if (questions[index].trim() === '') return;
                                 if (index < questions.length - 2) {
                                     questions.splice(index + 1, 0, '');
                                 }
