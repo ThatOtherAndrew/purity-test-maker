@@ -16,6 +16,7 @@
         name = "puritytest";
         packages = with pkgs; [
           bun
+          flyctl
         ];
       };
     };
