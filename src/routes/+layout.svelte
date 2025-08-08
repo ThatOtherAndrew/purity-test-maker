@@ -13,8 +13,8 @@
 
     <meta property="og:site_name" content="The Official Purity Test Maker" />
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://{page.url.hostname}{page.url.pathname}" />
-    <meta property="og:image" content="https://{page.url.hostname}/banner.png" />
+    <meta property="og:url" content="{page.url.origin}{page.url.pathname}" />
+    <meta property="og:image" content="{page.url.origin}/banner.png" />
 </svelte:head>
 
 {@render children?.()}
