@@ -2,7 +2,8 @@
     import PurityTest from '$lib/components/PurityTest.svelte';
     import PurityTestBuilder from '$lib/components/PurityTestBuilder.svelte';
     import PurityTestHeader from '$lib/components/PurityTestHeader.svelte';
-    import purityTests from '$lib/purity-tests';
+
+    let { data } = $props();
 
     // prettier-ignore
     const description = 'Make your own Purity Test quiz, and get a link to share with your friends and compare scores!';
@@ -18,7 +19,7 @@
         name="Purity Test Maker"
         isFullTitle
         stamp="The Official"
-        comment="{Object.keys(purityTests).length} Purity Tests and counting..."
+        comment="{data.testCount} Purity Tests and counting..."
     />
     <PurityTestBuilder />
 </PurityTest>

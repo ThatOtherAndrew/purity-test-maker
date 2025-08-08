@@ -1,11 +1,13 @@
-import { getTest } from '$lib/purity-tests';
-import type { PageLoad } from './$types';
+import { getPurityTest } from '$lib/utils';
+import type { PageServerLoad } from './$types';
 
-export const load: PageLoad = async ({ params }) => {
-    const testData = getTest(params.testId);
-    const answers = parseResultId(params.resultId, testData.questions.length);
-
-    return { testId: params.testId, testData, answers };
+export const load: PageServerLoad = async ({ params }) => {
+    const testData = await getPurityTest(params.testId);
+    return {
+        testData,
+        testId: params.testId,
+        answers: parseResultId(params.resultId, testData.questions.length),
+    };
 };
 
 function parseResultId(base64: string, questionLength: number): boolean[] {

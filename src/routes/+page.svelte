@@ -2,7 +2,8 @@
     import Button from '$lib/components/Button.svelte';
     import PurityTest from '$lib/components/PurityTest.svelte';
     import PurityTestHeader from '$lib/components/PurityTestHeader.svelte';
-    import purityTests from '$lib/purity-tests';
+
+    let { data } = $props();
 
     // prettier-ignore
     const description = 'Answer various Rice Purity Test style quizzes, or make your own to share with your friends!';
@@ -18,14 +19,14 @@
         name="Purity Test Maker"
         isFullTitle
         stamp="The Official"
-        comment="{Object.keys(purityTests).length} Purity Tests and counting..."
+        comment="{Object.keys(data.purityTests).length} Purity Tests and counting..."
     />
     <a href="/new">
         <Button value="Make your own test!" />
     </a>
 
     <h2>Choose a test:</h2>
-    {#each Object.entries(purityTests) as [testId, test] (testId)}
+    {#each Object.entries(data.purityTests) as [testId, test] (testId)}
         <a href={testId}>
             <div>
                 <h3>{test.name} Purity Test</h3>

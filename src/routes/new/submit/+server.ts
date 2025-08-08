@@ -1,15 +1,9 @@
 import { mkdir, writeFile, access } from 'fs/promises';
 import type { RequestHandler } from '@sveltejs/kit';
-
-export type PurityTestSubmission = {
-    name: string;
-    description: string;
-    completionConsequence: string;
-    questions: string[];
-};
+import type { PurityTestData } from '$lib/types';
 
 export const POST: RequestHandler = async ({ request }) => {
-    const data: PurityTestSubmission = await request.json();
+    const data: PurityTestData = await request.json();
     await mkdir('purity-tests', { recursive: true });
 
     const baseFileName = data.name

@@ -1,6 +1,7 @@
 <script lang="ts">
     import Button from './Button.svelte';
     import { page } from '$app/state';
+    import type { PurityTestData } from '$lib/types';
 
     let name = $state('');
     let description = $state('');
@@ -19,7 +20,7 @@
     }
 
     function handleSubmit() {
-        const data = {
+        const data: PurityTestData = {
             name: name === '' ? 'Rice' : name,
             description,
             completionConsequence,
