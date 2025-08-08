@@ -1,4 +1,4 @@
-import { readdir, readFile } from 'fs/promises';
+import { access, readdir, readFile, writeFile } from 'fs/promises';
 import type { PurityTestData } from './types';
 
 export async function getPurityTest(testId: string): Promise<PurityTestData> {
@@ -22,4 +22,27 @@ export async function getAllPurityTests(): Promise<Record<string, PurityTestData
 export async function countPurityTests(): Promise<number> {
     const files = await readdir('purity-tests');
     return files.filter(file => file.endsWith('.json')).length;
+}
+
+export async function savePurityTest(testData: PurityTestData): Promise<string> {
+    const baseFileName = testData.name
+        .trim()
+        .toLowerCase()
+        .replace(/[\s_]+/g, '-')
+        .replace(/[^a-z0-9-]/g, '');
+
+    let suffix = 1;
+    let testId = baseFileName;
+    while (true) {
+        try {
+            await access(`purity-tests/${testId}.json`);
+            suffix += 1;
+            testId = `${baseFileName}-${suffix}`;
+        } catch {
+            break;
+        }
+    }
+
+    await writeFile(`purity-tests/${testId}.json`, JSON.stringify(data, null, 2));
+    return testId;
 }

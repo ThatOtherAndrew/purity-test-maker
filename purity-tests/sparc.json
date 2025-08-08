@@ -29,5 +29,38 @@
     "Won a SPARC Bucks bet?",
     "Lost a SPARC Bucks bet?",
     "Gone bankrupt in SPARC Bucks?"
-  ]
+  ],
+  "default": {
+    "name": "SPARC",
+    "description": "The Rice Purity Test has infamously been a common topic of discussion at rationality camps. At last, SPARC now has its own unique Purity Test to talk about instead.",
+    "completionConsequence": "expulsion from camp",
+    "questions": [
+      "Used the word \"agency\"?",
+      "Put a note in someone else's envelope?",
+      "Prepared instant noodles in an unintended way?",
+      "Complained about the food?",
+      "Left unfinished food for others to clean up?",
+      "Suggested a product which ops bought?",
+      "Plotted yourself on an X-Y chart?",
+      "Participated in a Hamming circle?",
+      "Talked about Jane Street?",
+      "Talked about AI doom?",
+      "Gave a lightning talk?",
+      "Saw a deer?",
+      "Wrote a journal page or blog post?",
+      "Tried meditating?",
+      "Complained about the beds?",
+      "Pulled an all-nighter?",
+      "Fallen asleep on a BackJack / bean bag?",
+      "Fallen asleep during a class?",
+      "Walked out halfway through a class?",
+      "Skipped all three classes in a day?",
+      "Ran an activity?",
+      "Ran an activity which nobody turned up to?",
+      "Proposed three or more activities in a day?",
+      "Won a SPARC Bucks bet?",
+      "Lost a SPARC Bucks bet?",
+      "Gone bankrupt in SPARC Bucks?"
+    ]
+  }
 }
