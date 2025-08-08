@@ -1,5 +1,5 @@
 import { mkdir, writeFile, access } from 'fs/promises';
-import type { RequestHandler } from '@sveltejs/kit';
+import { type RequestHandler } from '@sveltejs/kit';
 import type { PurityTestData } from '$lib/types';
 
 export const POST: RequestHandler = async ({ request }) => {
@@ -13,18 +13,17 @@ export const POST: RequestHandler = async ({ request }) => {
         .replace(/[^a-z0-9-]/g, '');
 
     let suffix = 1;
-    let filePath = `purity-tests/${baseFileName}.json`;
+    let testId = baseFileName;
     while (true) {
         try {
-            await access(filePath);
+            await access(`purity-tests/${testId}.json`);
             suffix += 1;
-            filePath = `purity-tests/${baseFileName}-${suffix}.json`;
+            testId = `${baseFileName}-${suffix}`;
         } catch {
             break;
         }
     }
 
-    await writeFile(filePath, JSON.stringify(data, null, 2));
-    console.log(data);
-    return new Response();
+    await writeFile(`purity-tests/${testId}.json`, JSON.stringify(data, null, 2));
+    return new Response(JSON.stringify({ testId }));
 };

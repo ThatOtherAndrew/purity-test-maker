@@ -2,6 +2,7 @@
     import Button from './Button.svelte';
     import { page } from '$app/state';
     import type { PurityTestData } from '$lib/types';
+    import { goto } from '$app/navigation';
 
     let name = $state('');
     let description = $state('');
@@ -27,12 +28,14 @@
             questions: questions.filter(q => q.trim() !== ''),
         };
 
-        console.log(data);
-
         fetch(`${page.url.pathname}/submit`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data),
+        }).then(response => {
+            response.json().then(({ testId }) => {
+                goto(`/${testId}?created`);
+            });
         });
     }
 </script>
@@ -168,7 +171,7 @@
     </div>
     <hr />
 
-    <Button id="submit" value="Submit Purity Test!" onclick={handleSubmit} />
+    <Button id="submit" value="Create Purity Test!" onclick={handleSubmit} />
 </section>
 
 <style>
