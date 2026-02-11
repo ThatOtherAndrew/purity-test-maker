@@ -1,6 +1,18 @@
 import type { PageServerLoad } from './$types';
 import { getPurityTest } from '$lib/utils';
+import { error } from '@sveltejs/kit';
 
 export const load: PageServerLoad = async ({ params }) => {
-    return { testData: await getPurityTest(params.testId) };
+    let purityTest;
+    try {
+        purityTest = await getPurityTest(params.testId);
+    } catch (err) {
+        if ((err as NodeJS.ErrnoException).code === 'ENOENT') {
+            error(404, 'Not Found');
+        } else {
+            throw err;
+        }
+    }
+
+    return { testData: purityTest };
 };
